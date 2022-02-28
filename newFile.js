@@ -6,7 +6,7 @@ const title = "List of Name";
 /**
  *
  * @param {number} number number how many names will create
- * @returns  string with random numbers
+ * @returns  string with random name
  */
 const createRandomNames = (number) => {
   let listName = "";
