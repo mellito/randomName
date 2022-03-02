@@ -9,13 +9,22 @@ const title = "List of Name";
  * @returns  string with random name
  */
 const createRandomNames = (number) => {
-  let listName = "";
-  for (let index = 0; index < number; index++) {
-    listName += ` ${faker.name.findName()}. \n`;
+  try {
+    if (!isNaN(number) && number > 0) {
+      let listName = "";
+      for (let index = 0; index < number; index++) {
+        listName += ` ${faker.name.findName()}. \n`;
+      }
+
+      return listName;
+    } else {
+      throw "debes ingresar un numero positivo";
+    }
+  } catch (error) {
+    console.log(error);
   }
-  return listName;
 };
 
-fs.writeFileSync(`${title}.txt`, createRandomNames(100));
+fs.writeFileSync(`${title}.txt`, createRandomNames(1000));
 
 console.log(`file ${title}.txt created`);
